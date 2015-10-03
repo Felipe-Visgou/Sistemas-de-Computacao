@@ -24,5 +24,6 @@ double variable,temp, result = 0;
 		printf("Fazendo contas... Variable: %lf\n",result);
 	}
 	printf("prog2: Terminei \n" );
+	printf("-------------------------------------\n");
 	return 0;
 }

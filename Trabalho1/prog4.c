@@ -15,5 +15,6 @@ int main (void)
 			j = 3;
 	}
 	printf("prog4: Terminei \n");
+	printf("-------------------------------------\n");
 	return 0;
 }

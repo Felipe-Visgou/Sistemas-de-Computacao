@@ -14,5 +14,6 @@ int main(void)
 	sleep(1);
 	printf("prog5: TERMINADO \n");
 	printf("prog5: Terminei \n");
+	printf("-------------------------------------\n");
 	return 0;
 }
