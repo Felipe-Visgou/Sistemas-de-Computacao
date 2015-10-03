@@ -1,0 +1,2 @@
+exec prog1 prioridade=2
+exec prog2 prioridade=1
