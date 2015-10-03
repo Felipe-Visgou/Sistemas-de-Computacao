@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
 #define MAX_DADOS 100
 struct programa {
 		char nome[100];
@@ -25,12 +24,10 @@ int main (int argc,char*argv[])
 	
 	int fdin, fdout;
 	Prog* pProg;
-	int ret1;
-	int ret2;
+	int ret1, ret2;
 	int i = 0, j;
 	char buffNome[100];
-	int prio, tam;
-
+	int prio, tam, pid, status;
 	pProg = (Prog*)malloc(MAX_DADOS*(sizeof(Prog)));
 
 	/* Descritores de arquivos fdin e fdout */
@@ -65,14 +62,27 @@ int main (int argc,char*argv[])
 	tam = i;
 	/* Ordenar o vetor por prioridades */
 	qsort(pProg, i, sizeof(Prog), cmpprio); 
-	/*for(i = 0; i < tam; i++)
-		printf(" prioridade: %d \n", pProg[i].prioridade);*/
+		
 	/* Agora basta executar cada programa de acordo com sua posição no vetor */
-	 for(i = 0; i < 2; i++)
+	 for(i = 0; i < tam; i++)
 		{
-			execve(pProg[i].nome, 0, 0);
-		}
-
+			pid = fork();
+			if(pid < 0)
+			{
+				printf("Erro fork() \n");
+				exit(1);
+			}
+			else if(pid == 0)
+		     	 {
+				      execve(pProg[i].nome, 0, 0);
+					  exit(0);
+			     }
+			else if(pid > 0)
+				 {
+				 	  waitpid(-1, &status, 0);
+					 // exit(0);
+				 }
+		}	
 return 0;
 
 }

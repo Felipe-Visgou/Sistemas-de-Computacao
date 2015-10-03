@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<unistd.h>
 int main(void)
 {
 	printf("prog1: Ola, eu sou prog1! \n");
