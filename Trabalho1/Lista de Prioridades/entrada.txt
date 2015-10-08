@@ -1,9 +1,0 @@
-exec prog1 prioridade=2
-
-exec prog2 prioridade=1
-
-exec prog3 prioridade=2
-
-exec prog4 prioridade=4
-
-exec prog5 prioridade=7
