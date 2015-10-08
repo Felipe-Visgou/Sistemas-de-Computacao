@@ -48,18 +48,16 @@ int main (int argc,char*argv[])
 		printf("Erro dup2(fdin,0) \n");
 		return -2;
 	}
-	/*if(ret2 = dup2(fdout,1) == -1)
+	if(ret2 = dup2(fdout,1) == -1)
 	{
 		printf("Erro dup2(fdout,1) \n");
 		return -3;
-	}*/
+	}
 	/* Interpretador */
 	while(scanf("exec %s prioridade=%d [^\n]", &pProg[i].nome, &pProg[i].prioridade ) != EOF)
-	{
-		//printf("%s %d  \n", pProg[i].nome, pProg[i].prioridade);
 		i++;
-	}
 	tam = i;
+
 	/* Ordenar o vetor por prioridades */
 	qsort(pProg, i, sizeof(Prog), cmpprio); 
 		

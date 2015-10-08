@@ -62,10 +62,10 @@ int main (int argc,char*argv[])
 		i++;
 	}
 	tam = i;
+
+	/* Compartilhamento de memoria para um vetor de pid's de cada processo */
 	segmento = shmget(IPC_PRIVATE, tam * sizeof(int), IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR);
 	vProc = (int*)shmat(segmento, 0, 0);
-	/* Ordenar o vetor por prioridades */
-	//qsort(pProg, i, sizeof(Prog), cmpprio); 
 		
 	/* Agora basta executar cada programa de acordo com sua posição no vetor */
 	 for(i = 0; i < tam; i++)
@@ -85,34 +85,31 @@ int main (int argc,char*argv[])
 		else if(pid > 0)
 		{
 			printf("-------------------------------\n");
-                    	pProg[i].pid = pid;
+            pProg[i].pid = pid;
 			vProc[i] = pid;
-                   	sleep(3);
+            sleep(3);
 			printf("Gonna stop program %s with pid : %d \n", pProg[i].nome, pProg[i].pid);
-                 	kill(pProg[i].pid, SIGSTOP);
-			//  waitpid(-1, &status, 0);
+            kill(pProg[i].pid, SIGSTOP);
 
 			/* atualizar o vetor */
-                    	temp = pProg[i];
+            temp = pProg[i];
 			for(j = 0; j < tam; j++)
 			{
 				pProg[i] = pProg[i+1];
-                   	}
-                   	 pProg[j] = temp;
-
-			// exit(0);
+            }
+            pProg[j] = temp;
 		}
 	}
         for(j = 0; j < 5; j++)
         {
-	printf("---------------loop------------- \n");
+			printf("---------------loop------------- \n");
             for(i = 0; i < tam; i++)
             {
-		printf(" :) \n");
-		printf("Gonna SIGCONT program %s with pid = %d ... i = %d \n", pProg[i].nome, vProc[i], i);
+				printf(" :) \n");
+				printf("Gonna SIGCONT program %s with pid = %d ... i = %d \n", pProg[i].nome, vProc[i], i);
                 kill(vProc[i], SIGCONT);
                 sleep(3);
-		printf("Gonna SIGSTOP program %s with pid = %d ... i = %d \n", pProg[i].nome, vProc[i], i);
+				printf("Gonna SIGSTOP program %s with pid = %d ... i = %d \n", pProg[i].nome, vProc[i], i);
                 kill(vProc[i], SIGSTOP);
             }	
         }
