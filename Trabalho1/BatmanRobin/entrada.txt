@@ -1,0 +1,9 @@
+exec prog1
+exec prog2
+exec prog3
+exec prog4
+exec prog5
+exec prog6
+exec prog7
+exec prog8
+exec prog9
