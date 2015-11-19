@@ -1,0 +1,40 @@
+INF1019 - Laboratório 2
+*	
+Alunos : Felipe Vieira
+*			 
+Daniel Siles
+
+
+Exercício 1 - Soma de Matrizes
+
+Conclusão : Como os três processos (Pai, Filho e Neto) compartilham a mesma
+			   
+a memória que as três matrizes estão alocadas, quando cada um deles soma uma certa
+				
+linha de cada matriz e armazena numa terceira, no final dos processos ao imprimi-la
+				
+a matriz resultande de fato os elementos resultantes das somas em separado.
+
+
+Exercício 2 - Mensagem do Dia!
+
+Conclusão : Quando o programa "exec_recebe" possui a mesma chave de identificação da memória
+				
+compartilhada ele tem a possibilidade de ler o seu conteúdo ou até mesmo altera-lo. Quando é feito
+o shmget no programa que vai ler a mensagem compartilhada, o parâmetro IPC_EXCL não pode estar setado
+pois já existe uma chave para a memória
+
+Exercício 3 - Busca em Paralelo
+
+Conclusao :
+	Cada processo pesquisa a chave no vetor da memoria compartilhada,
+	
+se a chave eh encontrada em mais de uma ocorrencia do vetor e em 	
+	
+areas de pesquisa de processos diferetes, serah mostrado na tela
+	
+duas mensagens de que a chave foi achada e em posicoes diferentes.
+	
+O mesmo se aplica quando a chave nao se encontra no vetor,
+	
+tres mensagens de que a chave nao foi encotrada serah exibida.

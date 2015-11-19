@@ -1,0 +1,6 @@
+INF1019 - Sistemas de Computação
+Trabalho 2
+Simulador de Gerência de Memória
+
+Para que o arquivo seja lido pelo programa é necessário que seu nome seja mudado para
+"entrada.txt"

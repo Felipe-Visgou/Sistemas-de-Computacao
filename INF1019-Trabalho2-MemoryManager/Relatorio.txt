@@ -1,0 +1,28 @@
+INF1019 - Sistemas de Computação
+Dupla: Felipe Vieira Cortes - 1321881
+       Daniel Siles - 1311291
+* * * * * * * * * Relatório * * * * * * * * * * * *
+Entrada 1 com 5 processos
+Tempo decorrido de First Fit : 457
+		   Best Fit  : 457
+	           Worst Fit : 457
+		   Next Fit  : 457
+
+Entrada 2 com 7 Processos
+Tempo decorrido de First Fit : 411
+		   Best Fit  : 411
+	           Worst Fit : 411
+		   Next Fit  : 411
+
+Andamento do código: O algoritmo que simula o gerenciamento de memória
+funcionou perfeitamente para todos as rotinas que manipulam os processos
+na memória, apesar de todos os tempos decorridos terem sido iguais, observamos
+na saida que a memória é melhor utilizada quando é usado o método de Best Fit.
+As rotinas de Next Fit e First Fit tem o andamento muito similar, devido as partições
+de tamanhos diferentes da memória.
+A rotina de Worst Fit faz com que a memória fique menos utilizada, com a maioria dos processos ocupando
+a partição de 8MB.
+Erros: Até agora, todas as entradas que utilizamos não deram erro.
+
+
+
